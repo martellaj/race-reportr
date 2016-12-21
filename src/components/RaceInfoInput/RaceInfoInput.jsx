@@ -41,6 +41,7 @@ export default class RaceInfoInput extends Component {
 
     render() {
         const inputClasses = classNames({
+            'raceInfoInput__input': true,
             'raceInfoInput__input--disabled': this.state.isInputDisabled
         });
 
@@ -52,7 +53,7 @@ export default class RaceInfoInput extends Component {
         return (
             <div className="raceInfoInput">
                 <button className="raceInfoInput__button" onClick={this.onExcludeChange}>{this.state.buttonText}</button>
-                <div>
+                <div className="raceInfoInput_inputDiv">
                     <p className={labelClasses}>{this.props.label}</p>
                     <input ref={(input) => { this.input = input; }} type="text" className={inputClasses} disabled={this.state.isInputDisabled} onChange={this.onValueChange} value={this.props.value}/>
                 </div>
