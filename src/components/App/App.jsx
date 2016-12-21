@@ -8,20 +8,44 @@ export default class App extends Component {
         super();
 
         this.state = {
-            raceDetails: {
-                raceName: ''
+            raceInformation: {
+                name: {
+                    value: 'Seattle Marathon',
+                    exclude: false
+                },
+                distance: {
+                    value: '26.2 miles',
+                    exclude: false
+                },
+                date: {
+                    value: '11/26/2017',
+                    exclude: false
+                },
+                location: {
+                    value: 'Seattle, WA',
+                    exclude: false
+                },
+                website: {
+                    value: 'http://www.seattlemarathon.org/',
+                    exclude: false
+                }
             }
         };
 
-        this.setRaceName = this.setRaceName.bind(this);
+        this.setRaceInformationValue = this.setRaceInformationValue.bind(this);
+        this.setRaceInformationExclude = this.setRaceInformationExclude.bind(this);
     }
 
-    setRaceName(raceName) {
-        this.setState({
-            raceDetails: {
-                raceName
-            }
-        });
+    setRaceInformationValue(facet, value) {
+        let state = this.state;
+        state.raceInformation[facet].value = value;
+        this.setState(state);
+    }
+
+    setRaceInformationExclude(facet, value) {
+        let state = this.state;
+        state.raceInformation[facet].exclude = value;
+        this.setState(state);
     }
 
     render() {
@@ -29,8 +53,8 @@ export default class App extends Component {
             <div className="app">
                 <h2>App component</h2>
                 <div className="app__container">
-                    <InputContainer setRaceName={this.setRaceName} />
-                    <OutputContainer raceDetails={this.state.raceDetails} />
+                    <InputContainer raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} />
+                    <OutputContainer raceInformation={this.state.raceInformation} />
                 </div>
             </div>
         );
