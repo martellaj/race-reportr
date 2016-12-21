@@ -1,3 +1,7 @@
 .inputContainer {
+    /* temporary */
+    outline: solid;
+    background: lightblue;
+
     margin-right: 10px;
 }

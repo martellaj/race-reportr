@@ -7,9 +7,12 @@ export default class OutputContainer extends Component {
     }
 
     render() {
+        const raceDetails = this.props.raceDetails;
+
         return (
-            <div>
+            <div className="outputContainer">
                 <h2>OutputContainer component</h2>
+                <p>Race name: {raceDetails.raceName}</p>
             </div>
         );
     }

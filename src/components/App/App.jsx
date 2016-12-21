@@ -8,21 +8,29 @@ export default class App extends Component {
         super();
 
         this.state = {
-            raceName: ''
+            raceDetails: {
+                raceName: ''
+            }
         };
+
+        this.setRaceName = this.setRaceName.bind(this);
     }
 
     setRaceName(raceName) {
-        this.setState({ raceName });
+        this.setState({
+            raceDetails: {
+                raceName
+            }
+        });
     }
 
     render() {
         return (
-            <div>
+            <div className="app">
                 <h2>App component</h2>
                 <div className="app__container">
-                    <InputContainer />
-                    <OutputContainer />
+                    <InputContainer setRaceName={this.setRaceName} />
+                    <OutputContainer raceDetails={this.state.raceDetails} />
                 </div>
             </div>
         );

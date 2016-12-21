@@ -1,3 +1,9 @@
+.app {
+    /* temporary */
+    outline: solid;
+    background: lightpink;
+}
+
 .app__container {
     display: flex;
 }
