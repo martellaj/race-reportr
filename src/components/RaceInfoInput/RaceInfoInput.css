@@ -1,0 +1,38 @@
+.raceInfoInput {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.raceInfoInput__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    height: 20px;
+    margin: 2px;
+    padding: 0;
+    width: 40px;
+}
+
+.raceInfoInput__button:focus {
+    outline: none;
+}
+
+.raceInfoInput__input--disabled {
+    background: lightgray;
+    border: lightgrey;
+    color: darkgray;
+}
+
+.raceInfoInput__label {
+    margin: 0;
+    font-size: 12px;
+}
+
+.raceInfoInput__label--disabled {
+    margin: 0;
+    font-size: 12px;
+    color: darkgray;
+    font-style: italic;
+}
