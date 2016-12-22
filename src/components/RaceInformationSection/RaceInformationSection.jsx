@@ -1,4 +1,5 @@
 import './RaceInformationSection.css';
+import classNames from 'classnames';
 import RaceInfoInput from '../RaceInfoInput/RaceInfoInput';
 import React, { Component } from 'react';
 
@@ -19,8 +20,13 @@ export default class RaceInformationSection extends Component {
     }
 
     render() {
+        const sectionClasses = classNames({
+            [`${this.props.sectionClass}`]: true,
+            raceInformationSection: true
+        });
+
         return (
-            <div className="raceInformationSection">
+            <div className={sectionClasses}>
                 <div>
                     <button onClick={this.moveSectionUp}>up</button>
                     <button onClick={this.moveSectionDown}>down</button>

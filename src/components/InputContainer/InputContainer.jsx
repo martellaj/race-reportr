@@ -17,13 +17,13 @@ export default class InputContainer extends Component {
             switch (section) {
                 case 'raceInfo':
                     sections.push(
-                        <RaceInformationSection key={sections.length} raceInformation={this.props.raceInformation} setRaceInformationValue={this.props.setRaceInformationValue} setRaceInformationExclude={this.props.setRaceInformationExclude}
+                        <RaceInformationSection key={sections.length} sectionClass="section" raceInformation={this.props.raceInformation} setRaceInformationValue={this.props.setRaceInformationValue} setRaceInformationExclude={this.props.setRaceInformationExclude}
                         moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} />
                     );
                     break;
                 case 'goals':
                     sections.push(
-                        <GoalsSection key={sections.length} />
+                        <GoalsSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} />
                     );
                     break;
                 default:
