@@ -22,7 +22,7 @@ export default class OutputContainer extends Component {
         for (let prop in this.props.raceInformation) {
             let property = this.props.raceInformation[prop];
 
-            if (!property.exclude) {
+            if (!property.exclude && property.value) {
                 markdown += property.output + property.value + '\n'
             }
         }
