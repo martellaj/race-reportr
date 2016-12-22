@@ -31,7 +31,7 @@ export default class RaceInformationSection extends Component {
                     <button onClick={this.moveSectionUp}>up</button>
                     <button onClick={this.moveSectionDown}>down</button>
                 </div>
-                <div>
+                <div className="raceInformation__content">
                     <h3 className="raceInformationHeader">race information</h3>
                     <div className="raceInformationBody">
                         <RaceInfoInput label="name" value={this.props.raceInformation.name.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
