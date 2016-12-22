@@ -11,23 +11,28 @@ export default class App extends Component {
             raceInformation: {
                 name: {
                     value: 'Seattle Marathon',
-                    exclude: false
+                    exclude: false,
+                    output: '* **What?** '
+                },
+                date: {
+                    value: 'November 26, 2017',
+                    exclude: false,
+                    output: '* **When?** '
                 },
                 distance: {
                     value: '26.2 miles',
-                    exclude: false
-                },
-                date: {
-                    value: '11/26/2017',
-                    exclude: false
+                    exclude: false,
+                    output: '* **How far?** '
                 },
                 location: {
                     value: 'Seattle, WA',
-                    exclude: false
+                    exclude: false,
+                    output: '* **Where?** '
                 },
                 website: {
                     value: 'http://www.seattlemarathon.org/',
-                    exclude: false
+                    exclude: false,
+                    output: '* **Website?** '
                 }
             }
         };

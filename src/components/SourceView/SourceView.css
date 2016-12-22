@@ -1,0 +1,10 @@
+.sourceView {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.sourceView__textArea {
+    width: 80%;
+    height: 500px;
+    resize: none;
+}

@@ -20,6 +20,10 @@
     margin: 0;
 }
 
+.outputContainer__button {
+    font-size: 12px;
+}
+
 .outputContainer__button--selected {
     font-weight: bold;
 }
