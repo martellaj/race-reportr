@@ -8,6 +8,7 @@ export default class App extends Component {
         super();
 
         this.state = {
+            sections: ['raceInfo', 'goals'],
             raceInformation: {
                 name: {
                     value: 'Seattle Marathon',
@@ -37,8 +38,26 @@ export default class App extends Component {
             }
         };
 
+        this.moveSectionUp = this.moveSectionUp.bind(this);
+        this.moveSectionDown = this.moveSectionDown.bind(this);
         this.setRaceInformationValue = this.setRaceInformationValue.bind(this);
         this.setRaceInformationExclude = this.setRaceInformationExclude.bind(this);
+    }
+
+    moveSectionUp(section) {
+        let sections = this.state.sections;
+        let sectionIndex = sections.indexOf(section);
+        sections.splice(sectionIndex, 1);
+        sections.splice(sectionIndex - 1, 0, section);
+        this.setState({ sections });
+    }
+
+    moveSectionDown(section) {
+        let sections = this.state.sections;
+        let sectionIndex = sections.indexOf(section);
+        sections.splice(sectionIndex, 1);
+        sections.splice(sectionIndex + 1, 0, section);
+        this.setState({ sections });
     }
 
     setRaceInformationValue(facet, value) {
@@ -58,7 +77,7 @@ export default class App extends Component {
             <div className="app">
                 <h2>App component</h2>
                 <div className="app__container">
-                    <InputContainer raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} />
+                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} />
                     <OutputContainer raceInformation={this.state.raceInformation} />
                 </div>
             </div>
