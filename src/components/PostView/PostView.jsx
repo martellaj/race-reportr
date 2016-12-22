@@ -1,11 +1,12 @@
 import './PostView.css';
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default class PostView extends Component {
     render() {
         return (
             <div className="postView">
-                <p>{this.props.raceInformationMarkdown}</p>
+                <ReactMarkdown source={this.props.raceInformationMarkdown} />
             </div>
         );
     }
