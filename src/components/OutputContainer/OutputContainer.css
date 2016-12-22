@@ -5,3 +5,21 @@
 
     width: 60%;
 }
+
+.outputContainer__viewButtons {
+    display: flex;
+    align-items: center;
+}
+
+.outputContainer__viewButtons button {
+    margin: 0 5px;
+}
+
+.outputContainer__viewButtons p {
+    padding-top: 3px;
+    margin: 0;
+}
+
+.outputContainer__button--selected {
+    font-weight: bold;
+}

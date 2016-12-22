@@ -1,24 +1,41 @@
 import './OutputContainer.css';
+import classNames from 'classnames';
 import React, { Component } from 'react';
 
 export default class OutputContainer extends Component {
-    renderRaceName() {
-        const raceName = this.props.raceInformation.name;
+    constructor() {
+        super();
 
-        if (raceName.exclude || !raceName.value) {
-            return '';
-        } else {
-            return (
-                <p>Race name: {raceName.value}</p>
-            );
-        }
+        this.state = {
+            isPostView: true
+        };
+
+        this.onViewSelect = this.onViewSelect.bind(this);
+    }
+
+    onViewSelect(event) {
+        const isPostView = event.target.innerText.indexOf('post') > -1;
+        this.setState({
+            isPostView
+        });
     }
 
     render() {
+        const viewPostClasses = classNames({
+            'outputContainer__button--selected': this.state.isPostView
+        });
+
+        const viewSourceClasses = classNames({
+            'outputContainer__button--selected': !this.state.isPostView
+        });
+
         return (
             <div className="outputContainer">
-                <h2>OutputContainer component</h2>
-                {this.renderRaceName()}
+                <div className="outputContainer__viewButtons">
+                    <button className={viewPostClasses} onClick={this.onViewSelect}>view post</button>
+                    <p>|</p>
+                    <button className={viewSourceClasses} onClick={this.onViewSelect}>view source</button>
+                </div>
             </div>
         );
     }
