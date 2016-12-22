@@ -1,5 +1,6 @@
 import './GoalsSection.css';
 import classNames from 'classnames';
+import GoalInput from '../GoalInput/GoalInput';
 import React, { Component } from 'react';
 
 export default class GoalsSection extends Component {
@@ -32,6 +33,7 @@ export default class GoalsSection extends Component {
                 </div>
                 <div>
                     <h3 className="sectionHeader">goals</h3>
+                    <GoalInput />
                 </div>
             </div>
         );
