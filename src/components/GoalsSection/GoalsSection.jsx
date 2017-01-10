@@ -9,6 +9,7 @@ export default class GoalsSection extends Component {
 
         this.moveSectionUp = this.moveSectionUp.bind(this);
         this.moveSectionDown = this.moveSectionDown.bind(this);
+        this.addGoal = this.addGoal.bind(this);
     }
 
     moveSectionUp() {
@@ -17,6 +18,24 @@ export default class GoalsSection extends Component {
 
     moveSectionDown() {
         this.props.moveSectionDown('goals');
+    }
+
+    renderGoalInputs() {
+        let goalInputs = [];
+        let i = 0;
+
+        for (const goalInput of this.props.goals) {
+            const key = i++;
+            goalInputs.push(
+                <GoalInput key={key} _key={key} editGoal={this.props.editGoal} removeGoal={this.props.removeGoal} description={goalInput.description} completed={goalInput.completed} />
+            );
+        }
+
+        return goalInputs;
+    }
+
+    addGoal() {
+        this.props.addGoal();
     }
 
     render() {
@@ -33,7 +52,8 @@ export default class GoalsSection extends Component {
                 </div>
                 <div>
                     <h3 className="sectionHeader">goals</h3>
-                    <GoalInput />
+                    <button onClick={this.addGoal}>add</button>
+                    {this.renderGoalInputs()}
                 </div>
             </div>
         );

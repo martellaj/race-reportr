@@ -15,7 +15,7 @@ export default class SourceView extends Component {
     render() {
         return (
             <div className="sourceView">
-                <textarea ref={(textarea) => { this.textarea = textarea; }} className="sourceView__textArea" readOnly value={this.props.raceInformationMarkdown} onFocus={this.onTextAreaFocus} />
+                <textarea ref={(textarea) => { this.textarea = textarea; }} className="sourceView__textArea" readOnly value={this.props.markdown} onFocus={this.onTextAreaFocus} />
             </div>
         );
     }

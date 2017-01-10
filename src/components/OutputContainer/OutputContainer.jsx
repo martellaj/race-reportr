@@ -14,6 +14,31 @@ export default class OutputContainer extends Component {
 
         this.onViewSelect = this.onViewSelect.bind(this);
         this.convertRaceInformationToMarkdown = this.convertRaceInformationToMarkdown.bind(this);
+        this.convertGoalsToMarkdown = this.convertGoalsToMarkdown.bind(this);
+        this.renderMarkdown = this.renderMarkdown.bind(this);
+    }
+
+    renderMarkdown() {
+        let markdown = '';
+
+        for (const section of this.props.sections) {
+            if (this.props.sections.indexOf(section) !== 0) {
+                markdown += '\n';
+            }
+
+            switch (section) {
+                case 'raceInfo':
+                    markdown += this.convertRaceInformationToMarkdown();
+                    break;
+                case 'goals':
+                    markdown += this.convertGoalsToMarkdown();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return markdown;
     }
 
     convertRaceInformationToMarkdown() {
@@ -30,6 +55,27 @@ export default class OutputContainer extends Component {
         return markdown;
     }
 
+    convertGoalsToMarkdown() {
+        if (this.props.goals.length === 0) {
+            return '';
+        }
+
+        let markdown = '### Goals\n';
+        markdown += '| Goal | Description | Completed? |\n';
+        markdown += '|------|-------------|------------|\n';
+
+        let index = 0;
+        for (let goal of this.props.goals) {
+            markdown += `| ${this.convertIndexToLetter(index++)} | ${goal.description} | ${goal.completed} |\n`;
+        }
+
+        return markdown;
+    }
+
+    convertIndexToLetter(index) {
+        return String.fromCharCode(65 + index);
+    }
+
     onViewSelect(event) {
         const isPostView = event.target.innerText.indexOf('post') > -1;
         this.setState({
@@ -43,13 +89,13 @@ export default class OutputContainer extends Component {
 
     renderPostView() {
         return (
-            <PostView raceInformationMarkdown={this.convertRaceInformationToMarkdown()} />
+            <PostView markdown={this.renderMarkdown()} />
         );
     }
 
     renderSourceView() {
         return (
-            <SourceView raceInformationMarkdown={this.convertRaceInformationToMarkdown()} />
+            <SourceView markdown={this.renderMarkdown()} />
         );
     }
 
