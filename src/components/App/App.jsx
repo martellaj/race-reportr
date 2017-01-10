@@ -110,7 +110,7 @@ export default class App extends Component {
     render() {
         return (
             <div className="app">
-                <h2>App component</h2>
+                <h2>race reportr</h2>
                 <div className="app__container">
                     <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} />
                     <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} />
