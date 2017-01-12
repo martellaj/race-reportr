@@ -1,10 +1,6 @@
 .inputContainer {
-    /* temporary */
-    outline: solid;
-    background: lightblue;
-
     margin-right: 10px;
-    width: 30%;
+    width: 50%;
 }
 
 .section {

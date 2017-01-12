@@ -1,7 +1,8 @@
 .app {
-    /* temporary */
-    outline: solid;
-    background: lightpink;
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 .app__container {

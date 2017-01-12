@@ -1,9 +1,5 @@
 .outputContainer {
-    /* temporary */
-    outline: solid;
-    background: lightgreen;
-
-    width: 60%;
+    width: 50%;
 }
 
 .outputContainer__viewButtons {
