@@ -8,7 +8,7 @@ export default class App extends Component {
         super();
 
         this.state = {
-            sections: ['raceInfo', 'goals'],
+            sections: ['raceInfo', 'goals', 'pictures'],
             raceInformation: {
                 name: {
                     value: 'Seattle Marathon',
@@ -45,6 +45,12 @@ export default class App extends Component {
                     description: 'run faster than Joe',
                     completed: false
                 }
+            ],
+            pictures: [
+                {
+                    link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
+                    description: 'me at mile 26'
+                }
             ]
         };
 
@@ -55,6 +61,9 @@ export default class App extends Component {
         this.addGoal = this.addGoal.bind(this);
         this.removeGoal = this.removeGoal.bind(this);
         this.editGoal = this.editGoal.bind(this);
+        this.addPicture = this.addPicture.bind(this);
+        this.removePicture = this.removePicture.bind(this);
+        this.editPicture = this.editPicture.bind(this);
     }
 
     moveSectionUp(section) {
@@ -107,13 +116,35 @@ export default class App extends Component {
         this.setState({ goals });
     }
 
+    addPicture() {
+        let pictures = this.state.pictures;
+        pictures.push({
+            link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
+            description: 'me at mile 26'
+        });
+        this.setState({ pictures });
+    }
+
+    editPicture(index, link, description) {
+        let pictures = this.state.pictures;
+        pictures[index].link = link;
+        pictures[index].description = description;
+        this.setState({ pictures });
+    }
+
+    removePicture(index) {
+        let pictures = this.state.pictures;
+        pictures.splice(index, 1);
+        this.setState({ pictures });
+    }
+
     render() {
         return (
             <div className="app">
                 <h2>race reportr</h2>
                 <div className="app__container">
-                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} />
-                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} />
+                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} />
+                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} />
                 </div>
             </div>
         );

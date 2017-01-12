@@ -1,0 +1,12 @@
+.pictureInput {
+    margin-bottom: 5px;
+}
+
+.pictureInput input {
+    margin-bottom: 2px;
+    min-width: 175px;
+}
+
+.pictureInput > button {
+    margin-right: 5px;
+}

@@ -7,3 +7,13 @@
 .app__container {
     display: flex;
 }
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.label {
+    font-size: 12px;
+    margin: 0;
+}

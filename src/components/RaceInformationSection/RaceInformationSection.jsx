@@ -27,7 +27,7 @@ export default class RaceInformationSection extends Component {
 
         return (
             <div className={sectionClasses}>
-                <div>
+                <div className="sectionMovers">
                     <button onClick={this.moveSectionUp}>up</button>
                     <button onClick={this.moveSectionDown}>down</button>
                 </div>

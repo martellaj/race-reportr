@@ -33,6 +33,9 @@ export default class OutputContainer extends Component {
                 case 'goals':
                     markdown += this.convertGoalsToMarkdown();
                     break;
+                case 'pictures':
+                    markdown += this.convertPicturesToMarkdown();
+                    break;
                 default:
                     break;
             }
@@ -67,6 +70,19 @@ export default class OutputContainer extends Component {
         let index = 0;
         for (let goal of this.props.goals) {
             markdown += `| ${this.convertIndexToLetter(index++)} | ${goal.description} | ${goal.completed} |\n`;
+        }
+
+        return markdown;
+    }
+
+    convertPicturesToMarkdown() {
+        if (this.props.pictures.length === 0) {
+            return '';
+        }
+
+        let markdown = '### Pictures\n';
+        for (let picture of this.props.pictures) {
+            markdown += `* [${picture.description}](${picture.link})\n`;
         }
 
         return markdown;
