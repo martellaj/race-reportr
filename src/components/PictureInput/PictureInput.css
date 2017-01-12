@@ -4,7 +4,8 @@
 
 .pictureInput input {
     margin-bottom: 2px;
-    min-width: 175px;
+    width: 75%;
+    display: block;
 }
 
 .pictureInput > button {

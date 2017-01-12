@@ -49,7 +49,7 @@ export default class PicturesSection extends Component {
                     <button onClick={this.moveSectionUp}>up</button>
                     <button onClick={this.moveSectionDown}>down</button>
                 </div>
-                <div>
+                <div className="picturesSectionContent">
                     <h3 className="sectionHeader">pictures</h3>
                     <button onClick={this.addPicture}>add</button>
                     {this.renderPictureInputs()}
