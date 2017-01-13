@@ -53,10 +53,12 @@ export default class OutputContainer extends Component {
         let markdown = '### Race information\n';
 
         for (let prop in this.props.raceInformation) {
-            let property = this.props.raceInformation[prop];
+            if (this.props.raceInformation.hasOwnProperty(prop)) {
+                let property = this.props.raceInformation[prop];
 
-            if (!property.exclude && property.value) {
-                markdown += property.output + property.value + '\n'
+                if (!property.exclude && property.value) {
+                    markdown += property.output + property.value + '\n'
+                }
             }
         }
 
@@ -98,7 +100,7 @@ export default class OutputContainer extends Component {
             return '';
         }
 
-        let distanceType = this.props.splitInformation.isKm ? 'Kilometers' : 'Miles';
+        let distanceType = this.props.splitInformation.isKm ? 'Kilometer' : 'Mile';
 
         let markdown = '### Splits\n';
         markdown += `| ${distanceType} | Time |\n`;

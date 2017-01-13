@@ -37,6 +37,7 @@ export default class InputContainer extends Component {
                     sections.push(
                         <SplitInformationSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} splitInformation={this.props.splitInformation} addSplit={this.props.addSplit} editSplit={this.props.editSplit} removeSplit={this.props.removeSplit} setDistanceType={this.props.setDistanceType} />
                     );
+                    break;
                 default:
                     break;
             }
