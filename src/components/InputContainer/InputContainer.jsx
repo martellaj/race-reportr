@@ -4,6 +4,7 @@ import PicturesSection from '../PicturesSection/PicturesSection';
 import React, { Component } from 'react';
 import RaceInformationSection from '../RaceInformationSection/RaceInformationSection';
 import SplitInformationSection from '../SplitInformationSection/SplitInformationSection';
+import TextSection from '../TextSection/TextSection'
 
 export default class InputContainer extends Component {
     constructor() {
@@ -36,6 +37,11 @@ export default class InputContainer extends Component {
                 case 'splits':
                     sections.push(
                         <SplitInformationSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} splitInformation={this.props.splitInformation} addSplit={this.props.addSplit} editSplit={this.props.editSplit} removeSplit={this.props.removeSplit} setDistanceType={this.props.setDistanceType} />
+                    );
+                    break;
+                case 'text':
+                    sections.push(
+                        <TextSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} textSections={this.props.textSections} addTextSection={this.props.addTextSection} editTextSection={this.props.editTextSection} removeTextSection={this.props.removeTextSection} />
                     );
                     break;
                 default:

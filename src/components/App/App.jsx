@@ -8,7 +8,7 @@ export default class App extends Component {
         super();
 
         this.state = {
-            sections: ['raceInfo', 'goals', 'pictures', 'splits'],
+            sections: ['raceInfo', 'goals', 'pictures', 'splits', 'text'],
             raceInformation: {
                 name: {
                     value: 'Seattle Marathon',
@@ -57,7 +57,8 @@ export default class App extends Component {
                 splits: [
                     '8:30'
                 ]
-            }
+            },
+            textSections: ['Training', 'Pre-race', 'Race', 'Post-race']
         };
 
         this.moveSectionUp = this.moveSectionUp.bind(this);
@@ -74,6 +75,9 @@ export default class App extends Component {
         this.removeSplit = this.removeSplit.bind(this);
         this.editSplit = this.editSplit.bind(this);
         this.setDistanceType = this.setDistanceType.bind(this);
+        this.addTextSection = this.addTextSection.bind(this);
+        this.editTextSection = this.editTextSection.bind(this);
+        this.removeTextSection = this.removeTextSection.bind(this);
     }
 
     moveSectionUp(section) {
@@ -175,6 +179,24 @@ export default class App extends Component {
         this.setState({ splitInformation });
     }
 
+    addTextSection() {
+        let textSections = this.state.textSections;
+        textSections.push('custom');
+        this.setState({ textSections });
+    }
+
+    editTextSection(index, value) {
+        let textSections = this.state.textSections;
+        textSections[index] = value;
+        this.setState({ textSections });
+    }
+
+    removeTextSection(index) {
+        let textSections = this.state.textSections;
+        textSections.splice(index, 1);
+        this.setState({ textSections });
+    }
+
     render() {
         return (
             <div className="app">
@@ -185,8 +207,8 @@ export default class App extends Component {
                     <span className="label">baz</span>
                 </div>
                 <div className="app__container">
-                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} />
-                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} />
+                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
+                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} textSections={this.state.textSections} />
                 </div>
             </div>
         );

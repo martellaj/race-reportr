@@ -17,6 +17,7 @@ export default class OutputContainer extends Component {
         this.convertGoalsToMarkdown = this.convertGoalsToMarkdown.bind(this);
         this.convertPicturesToMarkdown = this.convertPicturesToMarkdown.bind(this);
         this.convertSplitsToMarkdown = this.convertSplitsToMarkdown.bind(this);
+        this.convertTextSectionsToMarkdown = this.convertTextSectionsToMarkdown.bind(this);
         this.renderMarkdown = this.renderMarkdown.bind(this);
     }
 
@@ -40,6 +41,9 @@ export default class OutputContainer extends Component {
                     break;
                 case 'splits':
                     markdown += this.convertSplitsToMarkdown();
+                    break;
+                case 'text':
+                    markdown += this.convertTextSectionsToMarkdown();
                     break;
                 default:
                     break;
@@ -109,6 +113,20 @@ export default class OutputContainer extends Component {
         let index = 1;
         for (let split of this.props.splitInformation.splits) {
             markdown += `| ${index++} | ${split} |\n`;
+        }
+
+        return markdown;
+    }
+
+    convertTextSectionsToMarkdown() {
+        if (this.props.textSections.length === 0) {
+            return '';
+        }
+
+        let markdown = '';
+        for (let textSection of this.props.textSections) {
+            markdown += `### ${textSection}\n`;
+            markdown += 'Tell your story here!\n\n';
         }
 
         return markdown;
