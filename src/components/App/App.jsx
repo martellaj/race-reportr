@@ -38,11 +38,11 @@ export default class App extends Component {
             },
             goals: [
                 {
-                    description: 'run super fast',
+                    description: 'Finish in the top 3',
                     completed: true
                 },
                 {
-                    description: 'run faster than Joe',
+                    description: 'Run faster than Joe',
                     completed: false
                 }
             ],
@@ -111,7 +111,7 @@ export default class App extends Component {
     addGoal() {
         let goals = this.state.goals;
         goals.push({
-            description: 'run really fast',
+            description: 'Run really fast',
             completed: false
         });
         this.setState({ goals });
@@ -181,7 +181,7 @@ export default class App extends Component {
 
     addTextSection() {
         let textSections = this.state.textSections;
-        textSections.push('custom');
+        textSections.push('Custom');
         this.setState({ textSections });
     }
 
@@ -202,9 +202,9 @@ export default class App extends Component {
             <div className="app">
                 <h2>race reportr</h2>
                 <div className="links">
-                    <span className="label">foo</span><span> | </span>
-                    <span className="label">bar</span><span> | </span>
-                    <span className="label">baz</span>
+                    <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20bug" target="_blank">report a bug</a></span><span> | </span>
+                    <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20feature" target="_blank">request a feature</a></span><span> | </span>
+                    <span className="label"><a href="https://github.com/martellaj/race-reportr" target="_blank">source on github</a></span>
                 </div>
                 <div className="app__container">
                     <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
