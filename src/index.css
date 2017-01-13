@@ -18,3 +18,17 @@ button {
 button:focus {
     outline: none;
 }
+
+.mobile-notice {
+    display: none;
+}
+
+@media (max-width: 615px) {
+    .mobile-notice {
+        display: block;
+        top: 0;
+        left: 0;
+        background: salmon;
+        margin: 0;
+    }
+}
