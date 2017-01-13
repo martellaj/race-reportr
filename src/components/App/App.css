@@ -18,3 +18,15 @@ h4 {
     font-size: 12px;
     margin: 0;
 }
+
+h2 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.app .links {
+    text-align: center;
+    margin-bottom: 20px;
+    vertical-align: center;
+}

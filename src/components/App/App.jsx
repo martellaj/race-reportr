@@ -142,6 +142,11 @@ export default class App extends Component {
         return (
             <div className="app">
                 <h2>race reportr</h2>
+                <div className="links">
+                    <span className="label">foo</span><span> | </span>
+                    <span className="label">bar</span><span> | </span>
+                    <span className="label">baz</span>
+                </div>
                 <div className="app__container">
                     <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} />
                     <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} />
