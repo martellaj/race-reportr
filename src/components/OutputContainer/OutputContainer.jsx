@@ -50,6 +50,8 @@ export default class OutputContainer extends Component {
             }
         }
 
+        markdown += '*This post was generated using [the new race reportr](https://martellaj.github.io/race-reportr/), a tool built by [/u/BBQLays](https://www.reddit.com/u/bbqlays) for making organized, easy-to-read, and beautiful race reports.*'
+
         return markdown;
     }
 
@@ -126,7 +128,7 @@ export default class OutputContainer extends Component {
         let markdown = '';
         for (let textSection of this.props.textSections) {
             markdown += `### ${textSection}\n`;
-            markdown += 'Tell your story here!\n\n';
+            markdown += 'Lorem ipsum dolor sit amet, quo quis enim in, et vis soleat utroque expetendis. Viris nostro placerat et cum, ut eum nobis noluisse. Eu zril aperiri tincidunt mea. Idque propriae vituperatoribus ex sed.\n\n';
         }
 
         return markdown;

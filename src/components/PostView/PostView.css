@@ -1,6 +1,7 @@
 .postView {
     margin-top: 15px;
     margin-left: 5px;
+    font-family: arial,sans-serif;
 }
 
 th {
@@ -9,4 +10,43 @@ th {
 
 th, td {
     padding-right: 10px;
+}
+
+.postView h3 {
+    color: #5b92fa;
+    margin-top: 15px;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: arial,sans-serif;
+    line-height: 1.25em;
+    margin-bottom: 5px;
+}
+
+.postView ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+    color: #404040;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: arial,sans-serif;
+    line-height: 1.35em;
+}
+
+.postView td, .postView th {
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.postView p {
+    margin-top: 0px;
+    font-size: 14px;
 }
