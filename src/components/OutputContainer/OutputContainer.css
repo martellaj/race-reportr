@@ -1,5 +1,6 @@
 .outputContainer {
     width: 50%;
+    margin-top: 10px;
 }
 
 .outputContainer__viewButtons {
@@ -17,7 +18,7 @@
 }
 
 .outputContainer__button {
-    font-size: 12px;
+    font-size: 18px;
 }
 
 .outputContainer__button--selected {
