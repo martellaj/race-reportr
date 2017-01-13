@@ -82,7 +82,7 @@ export default class OutputContainer extends Component {
 
         let index = 0;
         for (let goal of this.props.goals) {
-            markdown += `| ${this.convertIndexToLetter(index++)} | ${goal.description} | ${goal.completed} |\n`;
+            markdown += `| ${this.convertIndexToLetter(index++)} | ${goal.description} | *${this.convertBooleanToWord(goal.completed)}* |\n`;
         }
 
         return markdown;
@@ -136,6 +136,10 @@ export default class OutputContainer extends Component {
 
     convertIndexToLetter(index) {
         return String.fromCharCode(65 + index);
+    }
+
+    convertBooleanToWord(value) {
+        return value ? 'Yes' : 'No';
     }
 
     onViewSelect(event) {
