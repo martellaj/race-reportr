@@ -1,6 +1,6 @@
 .inputContainer {
-    margin-right: 10px;
-    width: 50%;
+    margin-right: 20px;
+    width: 45%;
 }
 
 .section {
@@ -8,6 +8,13 @@
     margin-bottom: 25px;
     width: 100%;
     display: flex;
+
+    border: solid;
+    border-width: 1px;
+    background: lightyellow;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .sectionMovers {
