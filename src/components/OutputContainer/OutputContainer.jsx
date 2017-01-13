@@ -63,7 +63,11 @@ export default class OutputContainer extends Component {
                 let property = this.props.raceInformation[prop];
 
                 if (!property.exclude && property.value) {
-                    markdown += property.output + property.value + '\n'
+                    if (property.output.indexOf('* **Website?**') > -1) {
+                        markdown += property.output + `[${property.value}](${property.value})\n`;
+                    } else {
+                        markdown += property.output + property.value + '\n'
+                    }
                 }
             }
         }
