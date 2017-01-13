@@ -8,7 +8,7 @@ export default class App extends Component {
         super();
 
         this.state = {
-            sections: ['raceInfo', 'goals', 'pictures'],
+            sections: ['raceInfo', 'goals', 'pictures', 'splits'],
             raceInformation: {
                 name: {
                     value: 'Seattle Marathon',
@@ -51,7 +51,13 @@ export default class App extends Component {
                     link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
                     description: 'me at mile 26'
                 }
-            ]
+            ],
+            splitInformation: {
+                isKm: false,
+                splits: [
+                    '8:30'
+                ]
+            }
         };
 
         this.moveSectionUp = this.moveSectionUp.bind(this);
@@ -64,6 +70,10 @@ export default class App extends Component {
         this.addPicture = this.addPicture.bind(this);
         this.removePicture = this.removePicture.bind(this);
         this.editPicture = this.editPicture.bind(this);
+        this.addSplit = this.addSplit.bind(this);
+        this.removeSplit = this.removeSplit.bind(this);
+        this.editSplit = this.editSplit.bind(this);
+        this.setDistanceType = this.setDistanceType.bind(this);
     }
 
     moveSectionUp(section) {
@@ -138,6 +148,33 @@ export default class App extends Component {
         this.setState({ pictures });
     }
 
+    addSplit() {
+        let splitInformation = this.state.splitInformation;
+        let splits = splitInformation.splits;
+        splits.push('8:30');
+        this.setState({ splitInformation });
+    }
+
+    editSplit(index, split) {
+        let splitInformation = this.state.splitInformation;
+        let splits = splitInformation.splits;
+        splits[index] = split;
+        this.setState({ splitInformation });
+    }
+
+    removeSplit(index) {
+        let splitInformation = this.state.splitInformation;
+        let splits = splitInformation.splits;
+        splits.splice(index, 1);
+        this.setState({ splitInformation });
+    }
+
+    setDistanceType(isKm) {
+        let splitInformation = this.state.splitInformation;
+        splitInformation.isKm = isKm;
+        this.setState({ splitInformation });
+    }
+
     render() {
         return (
             <div className="app">
@@ -148,8 +185,8 @@ export default class App extends Component {
                     <span className="label">baz</span>
                 </div>
                 <div className="app__container">
-                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} />
-                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} />
+                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} />
+                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} />
                 </div>
             </div>
         );

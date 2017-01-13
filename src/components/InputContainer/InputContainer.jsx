@@ -3,6 +3,7 @@ import GoalsSection from '../GoalsSection/GoalsSection';
 import PicturesSection from '../PicturesSection/PicturesSection';
 import React, { Component } from 'react';
 import RaceInformationSection from '../RaceInformationSection/RaceInformationSection';
+import SplitInformationSection from '../SplitInformationSection/SplitInformationSection';
 
 export default class InputContainer extends Component {
     constructor() {
@@ -32,6 +33,10 @@ export default class InputContainer extends Component {
                         <PicturesSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} pictures={this.props.pictures} addPicture={this.props.addPicture} editPicture={this.props.editPicture} removePicture={this.props.removePicture} />
                     );
                     break;
+                case 'splits':
+                    sections.push(
+                        <SplitInformationSection key={sections.length} sectionClass="section" moveSectionUp={this.props.moveSectionUp} moveSectionDown={this.props.moveSectionDown} splitInformation={this.props.splitInformation} addSplit={this.props.addSplit} editSplit={this.props.editSplit} removeSplit={this.props.removeSplit} setDistanceType={this.props.setDistanceType} />
+                    );
                 default:
                     break;
             }

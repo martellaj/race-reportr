@@ -15,6 +15,8 @@ export default class OutputContainer extends Component {
         this.onViewSelect = this.onViewSelect.bind(this);
         this.convertRaceInformationToMarkdown = this.convertRaceInformationToMarkdown.bind(this);
         this.convertGoalsToMarkdown = this.convertGoalsToMarkdown.bind(this);
+        this.convertPicturesToMarkdown = this.convertPicturesToMarkdown.bind(this);
+        this.convertSplitsToMarkdown = this.convertSplitsToMarkdown.bind(this);
         this.renderMarkdown = this.renderMarkdown.bind(this);
     }
 
@@ -35,6 +37,9 @@ export default class OutputContainer extends Component {
                     break;
                 case 'pictures':
                     markdown += this.convertPicturesToMarkdown();
+                    break;
+                case 'splits':
+                    markdown += this.convertSplitsToMarkdown();
                     break;
                 default:
                     break;
@@ -83,6 +88,25 @@ export default class OutputContainer extends Component {
         let markdown = '### Pictures\n';
         for (let picture of this.props.pictures) {
             markdown += `* [${picture.description}](${picture.link})\n`;
+        }
+
+        return markdown;
+    }
+
+    convertSplitsToMarkdown() {
+        if (this.props.splitInformation.splits.length === 0) {
+            return '';
+        }
+
+        let distanceType = this.props.splitInformation.isKm ? 'Kilometers' : 'Miles';
+
+        let markdown = '### Splits\n';
+        markdown += `| ${distanceType} | Time |\n`;
+        markdown += '|------|------|\n';
+
+        let index = 1;
+        for (let split of this.props.splitInformation.splits) {
+            markdown += `| ${index++} | ${split} |\n`;
         }
 
         return markdown;

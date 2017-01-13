@@ -7,8 +7,14 @@
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100%;
+    display: flex;
 }
 
 .sectionMovers {
     min-width: 55px;
+}
+
+.sectionHeader {
+    display: inline;
+    margin-right: 5px;
 }
