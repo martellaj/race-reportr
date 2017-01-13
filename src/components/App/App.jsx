@@ -39,17 +39,17 @@ export default class App extends Component {
             goals: [
                 {
                     description: 'Finish in the top 3',
-                    completed: true
+                    completed: false
                 },
                 {
-                    description: 'Run faster than Joe',
-                    completed: false
+                    description: '< 3 hours',
+                    completed: true
                 }
             ],
             pictures: [
                 {
                     link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
-                    description: 'me at mile 26'
+                    description: 'Me at mile 26'
                 }
             ],
             splitInformation: {
