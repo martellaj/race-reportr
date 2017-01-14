@@ -199,16 +199,20 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="app">
-                <h1>race reportr</h1>
-                <div className="links">
-                    <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20bug" target="_blank">report a bug</a></span><span> | </span>
-                    <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20feature" target="_blank">request a feature</a></span><span> | </span>
-                    <span className="label"><a href="https://github.com/martellaj/race-reportr" target="_blank">source on github</a></span>
+            <div>
+                <div className="header">
+                    <h1>race reportr</h1>
+                    <div className="links">
+                        <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20bug" target="_blank">report a bug</a></span><span> | </span>
+                        <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20feature" target="_blank">request a feature</a></span><span> | </span>
+                        <span className="label"><a href="https://github.com/martellaj/race-reportr" target="_blank">source on github</a></span>
+                    </div>
                 </div>
-                <div className="app__container">
-                    <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
-                    <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} textSections={this.state.textSections} />
+                <div className="app">
+                    <div className="app__container">
+                        <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
+                        <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} textSections={this.state.textSections} />
+                    </div>
                 </div>
             </div>
         );
