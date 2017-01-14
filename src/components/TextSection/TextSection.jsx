@@ -1,7 +1,7 @@
 import './TextSection.css';
+import classNames from 'classnames';
 import React, { Component } from 'react';
 import TextInput from '../TextInput/TextInput';
-import classNames from 'classnames';
 
 export default class TextSection extends Component {
     constructor() {
@@ -17,8 +17,8 @@ export default class TextSection extends Component {
         let textInputs = [];
         let i = 0;
 
-        for (const textInput of this.props.textSections) {
-            const key = i++;
+        for (let textInput of this.props.textSections) {
+            let key = i++;
             textInputs.push(
                 <TextInput key={key} _key={key} sectionName={textInput} editTextSection={this.props.editTextSection} removeTextSection={this.props.removeTextSection} />
             );
@@ -40,7 +40,7 @@ export default class TextSection extends Component {
     }
 
     render() {
-        const sectionClasses = classNames({
+        let sectionClasses = classNames({
             [`${this.props.sectionClass}`]: true,
             textSection: true
         });

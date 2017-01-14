@@ -1,6 +1,6 @@
 import './SourceView.css';
-import React, { Component } from 'react';
 import base from '../../utilities/base';
+import React, { Component } from 'react';
 
 export default class SourceView extends Component {
     constructor() {

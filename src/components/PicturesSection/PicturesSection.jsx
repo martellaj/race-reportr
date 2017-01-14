@@ -1,7 +1,7 @@
 import './PicturesSection.css';
 import classNames from 'classnames';
-import React, { Component } from 'react';
 import PictureInput from '../PictureInput/PictureInput';
+import React, { Component } from 'react';
 
 export default class PicturesSection extends Component {
     constructor() {
@@ -38,7 +38,7 @@ export default class PicturesSection extends Component {
     }
 
     render() {
-        const sectionClasses = classNames({
+        let sectionClasses = classNames({
             [`${this.props.sectionClass}`]: true,
             picturesSection: true
         });

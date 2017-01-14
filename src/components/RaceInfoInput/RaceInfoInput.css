@@ -1,6 +1,6 @@
 .raceInfoInput {
-    display: flex;
     align-items: center;
+    display: flex;
     margin-bottom: 10px;
     width: 100%;
 }
@@ -21,10 +21,10 @@
 }
 
 .raceInfoInput__label--disabled {
-    margin: 0;
-    font-size: 12px;
     color: darkgray;
+    font-size: 12px;
     font-style: italic;
+    margin: 0;
 }
 
 .raceInfoInput_inputDiv {

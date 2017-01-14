@@ -20,7 +20,7 @@ export default class RaceInformationSection extends Component {
     }
 
     render() {
-        const sectionClasses = classNames({
+        let sectionClasses = classNames({
             [`${this.props.sectionClass}`]: true,
             raceInformationSection: true
         });

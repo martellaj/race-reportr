@@ -3,11 +3,11 @@
 }
 
 .pictureInput input {
+    display: block;
     margin-bottom: 2px;
     width: 75%;
-    display: block;
 }
 
-.pictureInput > button {
+.pictureInput button {
     margin-right: 5px;
 }

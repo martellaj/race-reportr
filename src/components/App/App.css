@@ -1,44 +1,27 @@
 .app {
-    width: 70%;
+    margin-bottom: 10px;
     margin: 0 auto;
     padding-left: 20px;
     padding-top: 10px;
-    margin-bottom: 10px;
+    width: 70%;
 }
 
-.app__container {
+.app-container {
     display: flex;
 }
 
-h4 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.label {
-    font-size: 12px;
-    margin: 0;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 0px;
-    padding-top: 15px;
-    margin-bottom: 5px;
-}
-
 .links {
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
     vertical-align: center;
 }
 
 .header {
     background-color: #264575;
+    color: white;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    color: white;
 }
 
 .header a {
@@ -47,11 +30,11 @@ h1 {
 
 @media (max-width: 600px) {
     .app {
-        width: 100%;
         padding-left: 0px;
+        width: 100%;
     }
 
-    .app__container {
+    .app-container {
         flex-direction: column;
     }
 }

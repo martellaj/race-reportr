@@ -1,8 +1,8 @@
 import './InputContainer.css';
 import GoalsSection from '../GoalsSection/GoalsSection';
 import PicturesSection from '../PicturesSection/PicturesSection';
-import React, { Component } from 'react';
 import RaceInformationSection from '../RaceInformationSection/RaceInformationSection';
+import React, { Component } from 'react';
 import SplitInformationSection from '../SplitInformationSection/SplitInformationSection';
 import TextSection from '../TextSection/TextSection'
 
@@ -16,7 +16,7 @@ export default class InputContainer extends Component {
     renderSections() {
         let sections = [];
 
-        for (const section of this.props.sections) {
+        for (let section of this.props.sections) {
             switch (section) {
                 case 'raceInfo':
                     sections.push(

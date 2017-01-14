@@ -1,14 +1,13 @@
 .section {
-    margin-top: 10px;
-    margin-bottom: 25px;
-    width: 100%;
-    display: flex;
     background-color: white;
-
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    padding-bottom: 10px;
     padding-left: 10px;
     padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 .sectionMovers {
@@ -22,8 +21,8 @@
 
 @media (max-width: 600px) {
     .inputContainer {
-        min-width: 350px;
         margin: 0 auto;
+        min-width: 350px;
     }
 }
 

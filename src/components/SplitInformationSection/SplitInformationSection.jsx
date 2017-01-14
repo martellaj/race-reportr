@@ -29,8 +29,8 @@ export default class SplitInformationSection extends Component {
         let splitInputs = [];
         let i = 0;
 
-        for (const split of this.props.splitInformation.splits) {
-            const key = i++;
+        for (let split of this.props.splitInformation.splits) {
+            let key = i++;
             splitInputs.push(
                 <SplitInput key={key} _key={key} split={split} editSplit={this.props.editSplit} removeSplit={this.props.removeSplit} />
             );
@@ -47,7 +47,7 @@ export default class SplitInformationSection extends Component {
     }
 
     render() {
-        const sectionClasses = classNames({
+        let sectionClasses = classNames({
             [`${this.props.sectionClass}`]: true,
             splitsSection: true
         });

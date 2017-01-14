@@ -20,8 +20,21 @@ button:focus {
     outline: none;
 }
 
-.mobile-notice {
-    display: none;
+h1 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.label {
+    font-size: 12px;
+    margin: 0;
 }
 
 @media (max-width: 615px) {

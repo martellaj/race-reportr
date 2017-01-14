@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
 import './PictureInput.css';
+import React, { Component } from 'react';
 
 export default class PictureInput extends Component {
     constructor() {
         super();
 
-        this.onRemoveClick = this.onRemoveClick.bind(this);
         this.onDescriptionChange = this.onDescriptionChange.bind(this);
         this.onLinkChange = this.onLinkChange.bind(this);
-    }
-
-    onRemoveClick() {
-        this.props.removePicture(this.props._key);
+        this.onRemoveClick = this.onRemoveClick.bind(this);
     }
 
     onDescriptionChange(event) {
@@ -20,6 +16,10 @@ export default class PictureInput extends Component {
 
     onLinkChange(event) {
         this.props.editPicture(this.props._key, event.target.value, this.props.description);
+    }
+
+    onRemoveClick() {
+        this.props.removePicture(this.props._key);
     }
 
     render() {

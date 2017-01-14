@@ -1,8 +1,8 @@
 import './App.css';
+import base from '../../utilities/base';
 import InputContainer from '../InputContainer/InputContainer';
 import OutputContainer from '../OutputContainer/OutputContainer';
 import React, { Component } from 'react';
-import base from '../../utilities/base';
 
 export default class App extends Component {
     constructor() {
@@ -62,7 +62,7 @@ export default class App extends Component {
             textSections: ['Training', 'Pre-race', 'Race', 'Post-race']
         };
 
-        const today = new Date();
+        let today = new Date();
         base.push(`loads`, {
             data: today.toDateString()
         });
@@ -215,7 +215,7 @@ export default class App extends Component {
                     </div>
                 </div>
                 <div className="app">
-                    <div className="app__container">
+                    <div className="app-container">
                         <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
                         <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} textSections={this.state.textSections} />
                     </div>

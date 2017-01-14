@@ -24,7 +24,7 @@ export default class OutputContainer extends Component {
     renderMarkdown() {
         let markdown = '';
 
-        for (const section of this.props.sections) {
+        for (let section of this.props.sections) {
             if (this.props.sections.indexOf(section) !== 0) {
                 markdown += '\n';
             }
@@ -147,7 +147,7 @@ export default class OutputContainer extends Component {
     }
 
     onViewSelect(event) {
-        const isPostView = event.target.innerText.indexOf('post') > -1;
+        let isPostView = event.target.innerText.indexOf('post') > -1;
         this.setState({
             isPostView
         });
@@ -170,17 +170,17 @@ export default class OutputContainer extends Component {
     }
 
     render() {
-        const viewPostClasses = classNames({
+        let viewPostClasses = classNames({
             'outputContainer__button': true,
             'outputContainer__button--selected': this.state.isPostView
         });
 
-        const viewSourceClasses = classNames({
+        let viewSourceClasses = classNames({
             'outputContainer__button': true,
             'outputContainer__button--selected': !this.state.isPostView
         });
 
-        const outputBody = this.renderOutputBody();
+        let outputBody = this.renderOutputBody();
 
         return (
             <div className="outputContainer">

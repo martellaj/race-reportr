@@ -19,7 +19,7 @@ export default class TextInput extends Component {
     }
 
     render() {
-        const options = [
+        let options = [
             { value: 'Training', label: 'Training' },
             { value: 'Race Strategy', label: 'Race Strategy' },
             { value: 'Pre-race', label: 'Pre-race' },
