@@ -2,6 +2,7 @@
   "name": "race-reportr-v2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://martellaj.github.io/race-reportr",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },
