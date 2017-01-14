@@ -64,7 +64,12 @@ export default class OutputContainer extends Component {
 
                 if (!property.exclude && property.value) {
                     if (property.output.indexOf('* **Website?**') > -1) {
-                        markdown += property.output + `[${property.value}](${property.value})\n`;
+                        let url = property.value;
+                        if (url.indexOf('http') === -1) {
+                            url = 'http://' + property.value;
+                        }
+
+                        markdown += property.output + `[${property.value}](${url})\n`;
                     } else {
                         markdown += property.output + property.value + '\n'
                     }
