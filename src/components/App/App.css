@@ -1,5 +1,5 @@
 .app {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     padding-left: 20px;
     padding-top: 10px;
@@ -19,7 +19,7 @@ h4 {
     margin: 0;
 }
 
-h2 {
+h1 {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -29,4 +29,27 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     vertical-align: center;
+}
+
+@media (max-width: 600px) {
+    .app {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .app__container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 949px) {
+    .app {
+        width: 80%;
+    }
+}
+
+@media (min-width: 950px) {
+    .app {
+        width: 80%;
+    }
 }

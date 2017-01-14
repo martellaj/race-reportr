@@ -1,8 +1,3 @@
-.inputContainer {
-    margin-right: 20px;
-    width: 45%;
-}
-
 .section {
     margin-top: 10px;
     margin-bottom: 25px;
@@ -24,4 +19,25 @@
 .sectionHeader {
     display: inline;
     margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .inputContainer {
+        min-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 949px) {
+    .inputContainer {
+        margin-right: 20px;
+        min-width: 350px;
+    }
+}
+
+@media (min-width: 950px) {
+    .inputContainer {
+        margin-right: 20px;
+        min-width: 350px;
+    }
 }

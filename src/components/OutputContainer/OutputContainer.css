@@ -1,5 +1,4 @@
 .outputContainer {
-    width: 50%;
     margin-top: 10px;
 }
 
@@ -23,4 +22,11 @@
 
 .outputContainer__button--selected {
     font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .outputContainer {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 }
