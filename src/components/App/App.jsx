@@ -2,6 +2,7 @@ import './App.css';
 import InputContainer from '../InputContainer/InputContainer';
 import OutputContainer from '../OutputContainer/OutputContainer';
 import React, { Component } from 'react';
+import base from '../../utilities/base';
 
 export default class App extends Component {
     constructor() {
@@ -60,6 +61,11 @@ export default class App extends Component {
             },
             textSections: ['Training', 'Pre-race', 'Race', 'Post-race']
         };
+
+        const today = new Date();
+        base.push(`loads`, {
+            data: today.toDateString()
+        });
 
         this.moveSectionUp = this.moveSectionUp.bind(this);
         this.moveSectionDown = this.moveSectionDown.bind(this);
