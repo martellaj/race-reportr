@@ -165,7 +165,7 @@ export default class OutputContainer extends Component {
 
     renderSourceView() {
         return (
-            <SourceView markdown={this.renderMarkdown()} />
+            <SourceView markdown={this.renderMarkdown()} raceInformation={this.props.raceInformation} />
         );
     }
 

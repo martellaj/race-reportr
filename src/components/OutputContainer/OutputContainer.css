@@ -8,6 +8,8 @@
 .outputContainer__viewButtons {
     display: flex;
     align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .outputContainer__viewButtons button {

@@ -1,5 +1,6 @@
 import './SourceView.css';
 import React, { Component } from 'react';
+import base from '../../utilities/base';
 
 export default class SourceView extends Component {
     constructor() {
@@ -17,11 +18,12 @@ export default class SourceView extends Component {
         this.textarea.select();
     }
 
-    // TODO: Somehow log that a report was copied. Best I can do to count
-    // how many reports have been generated.
     onCopy() {
         if (!this.state.copied) {
-            console.log('copied');
+            base.push(`reports`, {
+                data: this.props.raceInformation
+            });
+
             this.setState({
                 copied: true
             });
