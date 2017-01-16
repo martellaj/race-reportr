@@ -1,5 +1,7 @@
 import './OutputContainer.css';
-import classNames from 'classnames';
+import { copyTextToClipboard } from '../../utilities/clipboard';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import base from '../../utilities/base';
 import PostView from '../PostView/PostView';
 import React, { Component } from 'react';
 import SourceView from '../SourceView/SourceView';
@@ -9,7 +11,9 @@ export default class OutputContainer extends Component {
         super();
 
         this.state = {
-            isPostView: true
+            isPostView: true,
+            selectedIndex: 0,
+            copyButtonText: 'copy source'
         };
 
         this.onViewSelect = this.onViewSelect.bind(this);
@@ -19,6 +23,9 @@ export default class OutputContainer extends Component {
         this.convertSplitsToMarkdown = this.convertSplitsToMarkdown.bind(this);
         this.convertTextSectionsToMarkdown = this.convertTextSectionsToMarkdown.bind(this);
         this.renderMarkdown = this.renderMarkdown.bind(this);
+        this.onTabSelect = this.onTabSelect.bind(this);
+        this.onCopyClick = this.onCopyClick.bind(this);
+        this.logReportGeneratedEvent = this.logReportGeneratedEvent.bind(this);
     }
 
     renderMarkdown() {
@@ -170,31 +177,61 @@ export default class OutputContainer extends Component {
 
     renderSourceView() {
         return (
-            <SourceView markdown={this.renderMarkdown()} raceInformation={this.props.raceInformation} />
+            <SourceView markdown={this.renderMarkdown()} logReportGeneratedEvent={this.logReportGeneratedEvent} />
         );
     }
 
+    logReportGeneratedEvent() {
+        base.push(`reports`, {
+            data: this.props.raceInformation
+        });
+    }
+
+    onTabSelect(index) {
+        this.setState({
+            isPostView: index === 0,
+            selectedIndex: index
+        });
+    }
+
+    onCopyClick() {
+        // Get Markdown source.
+        let source = this.renderMarkdown();
+
+        // Copy text to clipboard.
+        let success = copyTextToClipboard(source);
+        if (success) {
+            this.setState({
+                copyButtonText: 'copied!'
+            });
+
+            setTimeout(() => {
+                this.setState({
+                    copyButtonText: 'copy source'
+                });
+            }, 1000);
+        }
+
+        // Log event.
+        this.logReportGeneratedEvent();
+    }
+
     render() {
-        let viewPostClasses = classNames({
-            'outputContainer__button': true,
-            'outputContainer__button--selected': this.state.isPostView
-        });
-
-        let viewSourceClasses = classNames({
-            'outputContainer__button': true,
-            'outputContainer__button--selected': !this.state.isPostView
-        });
-
-        let outputBody = this.renderOutputBody();
-
         return (
             <div className="outputContainer">
-                <div className="outputContainer__viewButtons">
-                    <button className={viewPostClasses} onClick={this.onViewSelect}>view post</button>
-                    <p>|</p>
-                    <button className={viewSourceClasses} onClick={this.onViewSelect}>view source</button>
-                </div>
-                {outputBody}
+                <button className="copy-button" onClick={this.onCopyClick} children={this.state.copyButtonText}></button>
+
+                <Tabs onSelect={this.onTabSelect} selectedIndex={this.state.selectedIndex}>
+                    <TabList>
+                        <Tab>preview</Tab>
+                        <Tab>source</Tab>
+                    </TabList>
+
+                    <TabPanel />
+                    <TabPanel />
+                </Tabs>
+
+                {this.renderOutputBody()}
             </div>
         );
     }

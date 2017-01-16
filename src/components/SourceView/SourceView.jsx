@@ -1,14 +1,9 @@
 import './SourceView.css';
-import base from '../../utilities/base';
 import React, { Component } from 'react';
 
 export default class SourceView extends Component {
     constructor() {
         super();
-
-        this.state = {
-            copied: false
-        };
 
         this.onTextAreaFocus = this.onTextAreaFocus.bind(this);
         this.onCopy = this.onCopy.bind(this);
@@ -19,15 +14,7 @@ export default class SourceView extends Component {
     }
 
     onCopy() {
-        if (!this.state.copied) {
-            base.push(`reports`, {
-                data: this.props.raceInformation
-            });
-
-            this.setState({
-                copied: true
-            });
-        }
+        this.props.logReportGeneratedEvent();
     }
 
     render() {

@@ -29,6 +29,31 @@
     font-weight: bold;
 }
 
+.copy-button {
+    height: auto;
+    font-style: normal;
+    margin: 12px;
+    background: #264575;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.copy-button:hover {
+    background: #3d72b3;
+    text-decoration: none;
+}
+
+.ReactTabs__Tab--selected {
+    font-style: italic;
+}
+
 @media (max-width: 600px) {
     .outputContainer {
         margin-left: 15px;
