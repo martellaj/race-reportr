@@ -2,8 +2,7 @@
 
 *race reportr* is a tool used by reddit's running communities to generate well-organized, beautiful race reports. This iteration of *race reportr* is completely written in React.
 
-![Thanks, Obama!](https://media.giphy.com/media/l4JyYCo1POYWC9HmE/source.gif "Thanks, Obama!")
-
+![race reportr in action](https://media.giphy.com/media/l0ExcOc7pJTPcwtkk/source.gif "race reportr in action")
 
 ## Acknowledgements
 
