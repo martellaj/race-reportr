@@ -63,7 +63,7 @@ export default class OutputContainer extends Component {
                 let property = this.props.raceInformation[prop];
 
                 if (!property.exclude && property.value) {
-                    if (property.output.indexOf('* **Website?**') > -1) {
+                    if (property.output.indexOf('**Website') > -1 || property.output.indexOf('**Strava') > -1) {
                         let url = property.value;
                         if (url.indexOf('http') === -1) {
                             url = 'http://' + property.value;

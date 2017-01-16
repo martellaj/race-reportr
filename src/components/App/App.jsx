@@ -34,7 +34,12 @@ export default class App extends Component {
                 website: {
                     value: 'http://www.seattlemarathon.org/',
                     exclude: false,
-                    output: '* **Website?** '
+                    output: '* **Website:** '
+                },
+                strava: {
+                    value: 'https://www.strava.com/activities/739582034',
+                    exclude: false,
+                    output: '* **Strava activity:** '
                 }
             },
             goals: [
