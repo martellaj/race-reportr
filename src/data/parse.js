@@ -1,7 +1,7 @@
 fs = require('fs');
 
 (function() {
-    const data = JSON.parse(fs.readFileSync('./src/data/dumps/04242017.json', 'utf8'));
+    const data = JSON.parse(fs.readFileSync('./src/data/dumps/11102017.json', 'utf8'));
 
     const loadData = parseLoads(data.loads);
     const reportsData = parseReports(data.reports);
@@ -47,9 +47,14 @@ function parseLoads(rawLoads) {
  */
 function parseReports(rawReports) {
     // Convert object to array.
-    const reports = [];
+    let reports = [];
     Object.keys(rawReports).map(function(key, index) {
         reports.push(rawReports[key]);
+    });
+
+    // Remove entries without a name.
+    reports = reports.filter((report) => {
+        return !!report.name;
     });
 
     // Sort reports array.
