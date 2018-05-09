@@ -34,12 +34,62 @@ export default class RaceInformationSection extends Component {
                 <div className="raceInformation__content">
                     <h3 className="raceInformationHeader">race information</h3>
                     <div className="raceInformationBody">
-                        <RaceInfoInput label="name" value={this.props.raceInformation.name.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
-                        <RaceInfoInput label="date" value={this.props.raceInformation.date.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
-                        <RaceInfoInput label="distance" value={this.props.raceInformation.distance.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
-                        <RaceInfoInput label="location" value={this.props.raceInformation.location.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
-                        <RaceInfoInput label="website" value={this.props.raceInformation.website.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
-                        <RaceInfoInput label="strava" value={this.props.raceInformation.strava.value} onValueChange={this.props.setRaceInformationValue} onExcludeChange={this.props.setRaceInformationExclude} />
+                        <RaceInfoInput
+                            label="name"
+                            value={this.props.raceInformation.name.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="date"
+                            value={this.props.raceInformation.date.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="distance"
+                            value={this.props.raceInformation.distance.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="location"
+                            value={this.props.raceInformation.location.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="website"
+                            value={this.props.raceInformation.website.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="strava"
+                            value={this.props.raceInformation.strava.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
+                        <RaceInfoInput
+                            label="finish time"
+                            value={this.props.raceInformation.finishTime.value}
+                            onValueChange={this.props.setRaceInformationValue}
+                            onExcludeChange={
+                                this.props.setRaceInformationExclude
+                            }
+                        />
                     </div>
                 </div>
             </div>

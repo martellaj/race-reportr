@@ -40,6 +40,11 @@ export default class App extends Component {
                     value: 'https://www.strava.com/activities/739582034',
                     exclude: false,
                     output: '* **Strava activity:** '
+                },
+                finishTime: {
+                    value: '2:55',
+                    exclude: false,
+                    output: '* **Finish time:** '
                 }
             },
             goals: [
@@ -54,15 +59,14 @@ export default class App extends Component {
             ],
             pictures: [
                 {
-                    link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
+                    link:
+                        'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
                     description: 'Me at mile 26'
                 }
             ],
             splitInformation: {
                 isKm: false,
-                splits: [
-                    '8:30'
-                ]
+                splits: ['8:30']
             },
             textSections: ['Training', 'Pre-race', 'Race', 'Post-race']
         };
@@ -75,7 +79,9 @@ export default class App extends Component {
         this.moveSectionUp = this.moveSectionUp.bind(this);
         this.moveSectionDown = this.moveSectionDown.bind(this);
         this.setRaceInformationValue = this.setRaceInformationValue.bind(this);
-        this.setRaceInformationExclude = this.setRaceInformationExclude.bind(this);
+        this.setRaceInformationExclude = this.setRaceInformationExclude.bind(
+            this
+        );
         this.addGoal = this.addGoal.bind(this);
         this.removeGoal = this.removeGoal.bind(this);
         this.editGoal = this.editGoal.bind(this);
@@ -144,7 +150,8 @@ export default class App extends Component {
     addPicture() {
         let pictures = this.state.pictures;
         pictures.push({
-            link: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
+            link:
+                'http://i0.kym-cdn.com/photos/images/newsfeed/000/279/364/a90.jpg',
             description: 'me at mile 26'
         });
         this.setState({ pictures });
@@ -214,15 +221,73 @@ export default class App extends Component {
                 <div className="header">
                     <h1>race reportr</h1>
                     <div className="links">
-                        <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20bug" target="_blank">report a bug</a></span><span> | </span>
-                        <span className="label"><a href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20feature" target="_blank">request a feature</a></span><span> | </span>
-                        <span className="label"><a href="https://github.com/martellaj/race-reportr" target="_blank">source on github</a></span>
+                        <span className="label">
+                            <a
+                                href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20bug"
+                                target="_blank"
+                            >
+                                report a bug
+                            </a>
+                        </span>
+                        <span> | </span>
+                        <span className="label">
+                            <a
+                                href="https://www.reddit.com/message/compose?to=BBQLays&subject=race%20reportr%20feature"
+                                target="_blank"
+                            >
+                                request a feature
+                            </a>
+                        </span>
+                        <span> | </span>
+                        <span className="label">
+                            <a
+                                href="https://github.com/martellaj/race-reportr"
+                                target="_blank"
+                            >
+                                source on github
+                            </a>
+                        </span>
                     </div>
                 </div>
                 <div className="app">
                     <div className="app-container">
-                        <InputContainer sections={this.state.sections} moveSectionUp={this.moveSectionUp} moveSectionDown={this.moveSectionDown} raceInformation={this.state.raceInformation} setRaceInformationValue={this.setRaceInformationValue} setRaceInformationExclude={this.setRaceInformationExclude} goals={this.state.goals} addGoal={this.addGoal} editGoal={this.editGoal} removeGoal={this.removeGoal} pictures={this.state.pictures} addPicture={this.addPicture} editPicture={this.editPicture} removePicture={this.removePicture} splitInformation={this.state.splitInformation} addSplit={this.addSplit} editSplit={this.editSplit} removeSplit={this.removeSplit} setDistanceType={this.setDistanceType} textSections={this.state.textSections} addTextSection={this.addTextSection} editTextSection={this.editTextSection} removeTextSection={this.removeTextSection} />
-                        <OutputContainer sections={this.state.sections} raceInformation={this.state.raceInformation} goals={this.state.goals} pictures={this.state.pictures} splitInformation={this.state.splitInformation} textSections={this.state.textSections} />
+                        <InputContainer
+                            sections={this.state.sections}
+                            moveSectionUp={this.moveSectionUp}
+                            moveSectionDown={this.moveSectionDown}
+                            raceInformation={this.state.raceInformation}
+                            setRaceInformationValue={
+                                this.setRaceInformationValue
+                            }
+                            setRaceInformationExclude={
+                                this.setRaceInformationExclude
+                            }
+                            goals={this.state.goals}
+                            addGoal={this.addGoal}
+                            editGoal={this.editGoal}
+                            removeGoal={this.removeGoal}
+                            pictures={this.state.pictures}
+                            addPicture={this.addPicture}
+                            editPicture={this.editPicture}
+                            removePicture={this.removePicture}
+                            splitInformation={this.state.splitInformation}
+                            addSplit={this.addSplit}
+                            editSplit={this.editSplit}
+                            removeSplit={this.removeSplit}
+                            setDistanceType={this.setDistanceType}
+                            textSections={this.state.textSections}
+                            addTextSection={this.addTextSection}
+                            editTextSection={this.editTextSection}
+                            removeTextSection={this.removeTextSection}
+                        />
+                        <OutputContainer
+                            sections={this.state.sections}
+                            raceInformation={this.state.raceInformation}
+                            goals={this.state.goals}
+                            pictures={this.state.pictures}
+                            splitInformation={this.state.splitInformation}
+                            textSections={this.state.textSections}
+                        />
                     </div>
                 </div>
             </div>
