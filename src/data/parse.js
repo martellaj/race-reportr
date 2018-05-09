@@ -1,7 +1,9 @@
 fs = require('fs');
 
 (function() {
-    const data = JSON.parse(fs.readFileSync('./src/data/dumps/11102017.json', 'utf8'));
+    const data = JSON.parse(
+        fs.readFileSync('./src/data/dumps/05082018.json', 'utf8')
+    );
 
     const loadData = parseLoads(data.loads);
     const reportsData = parseReports(data.reports);
@@ -53,7 +55,7 @@ function parseReports(rawReports) {
     });
 
     // Remove entries without a name.
-    reports = reports.filter((report) => {
+    reports = reports.filter(report => {
         return !!report.name;
     });
 
@@ -83,13 +85,17 @@ function parseReports(rawReports) {
         if (!last) {
             deduped.push(report);
         } else {
-            if (!(report.date.value === last.date.value &&
-                report.distance.value === last.distance.value &&
-                report.location.value === last.location.value &&
-                report.name.value === last.name.value &&
-                report.website.value === last.website.value)) {
-                    deduped.push(report);
-                }
+            if (
+                !(
+                    report.date.value === last.date.value &&
+                    report.distance.value === last.distance.value &&
+                    report.location.value === last.location.value &&
+                    report.name.value === last.name.value &&
+                    report.website.value === last.website.value
+                )
+            ) {
+                deduped.push(report);
+            }
         }
 
         last = report;
@@ -99,4 +105,3 @@ function parseReports(rawReports) {
         totalCount: deduped.length
     };
 }
-
