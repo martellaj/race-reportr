@@ -17,14 +17,21 @@ export default class OutputContainer extends Component {
         };
 
         this.onViewSelect = this.onViewSelect.bind(this);
-        this.convertRaceInformationToMarkdown = this.convertRaceInformationToMarkdown.bind(this);
+        this.convertRaceInformationToMarkdown = this.convertRaceInformationToMarkdown.bind(
+            this
+        );
         this.convertGoalsToMarkdown = this.convertGoalsToMarkdown.bind(this);
-        this.convertPicturesToMarkdown = this.convertPicturesToMarkdown.bind(this);
+        this.convertPicturesToMarkdown = this.convertPicturesToMarkdown.bind(
+            this
+        );
         this.convertSplitsToMarkdown = this.convertSplitsToMarkdown.bind(this);
-        this.convertTextSectionsToMarkdown = this.convertTextSectionsToMarkdown.bind(this);
+        this.convertTextSectionsToMarkdown = this.convertTextSectionsToMarkdown.bind(
+            this
+        );
         this.renderMarkdown = this.renderMarkdown.bind(this);
         this.onTabSelect = this.onTabSelect.bind(this);
         this.onCopyClick = this.onCopyClick.bind(this);
+        this.onDonateClick = this.onDonateClick.bind(this);
         this.logReportGeneratedEvent = this.logReportGeneratedEvent.bind(this);
     }
 
@@ -57,7 +64,8 @@ export default class OutputContainer extends Component {
             }
         }
 
-        markdown += '*This post was generated using [the new race reportr](https://martellaj.github.io/race-reportr/), a tool built by [/u/BBQLays](https://www.reddit.com/u/bbqlays) for making organized, easy-to-read, and beautiful race reports.*'
+        markdown +=
+            '*This post was generated using [the new race reportr](https://martellaj.github.io/race-reportr/), a tool built by [/u/BBQLays](https://www.reddit.com/u/bbqlays) for making organized, easy-to-read, and beautiful race reports.*';
 
         return markdown;
     }
@@ -70,15 +78,19 @@ export default class OutputContainer extends Component {
                 let property = this.props.raceInformation[prop];
 
                 if (!property.exclude && property.value) {
-                    if (property.output.indexOf('**Website') > -1 || property.output.indexOf('**Strava') > -1) {
+                    if (
+                        property.output.indexOf('**Website') > -1 ||
+                        property.output.indexOf('**Strava') > -1
+                    ) {
                         let url = property.value;
                         if (url.indexOf('http') === -1) {
                             url = 'http://' + property.value;
                         }
 
-                        markdown += property.output + `[${property.value}](${url})\n`;
+                        markdown +=
+                            property.output + `[${property.value}](${url})\n`;
                     } else {
-                        markdown += property.output + property.value + '\n'
+                        markdown += property.output + property.value + '\n';
                     }
                 }
             }
@@ -98,7 +110,9 @@ export default class OutputContainer extends Component {
 
         let index = 0;
         for (let goal of this.props.goals) {
-            markdown += `| ${this.convertIndexToLetter(index++)} | ${goal.description} | *${this.convertBooleanToWord(goal.completed)}* |\n`;
+            markdown += `| ${this.convertIndexToLetter(index++)} | ${
+                goal.description
+            } | *${this.convertBooleanToWord(goal.completed)}* |\n`;
         }
 
         return markdown;
@@ -122,7 +136,9 @@ export default class OutputContainer extends Component {
             return '';
         }
 
-        let distanceType = this.props.splitInformation.isKm ? 'Kilometer' : 'Mile';
+        let distanceType = this.props.splitInformation.isKm
+            ? 'Kilometer'
+            : 'Mile';
 
         let markdown = '### Splits\n';
         markdown += `| ${distanceType} | Time |\n`;
@@ -144,7 +160,8 @@ export default class OutputContainer extends Component {
         let markdown = '';
         for (let textSection of this.props.textSections) {
             markdown += `### ${textSection}\n`;
-            markdown += 'Lorem ipsum dolor sit amet, quo quis enim in, et vis soleat utroque expetendis. Viris nostro placerat et cum, ut eum nobis noluisse. Eu zril aperiri tincidunt mea. Idque propriae vituperatoribus ex sed.\n\n';
+            markdown +=
+                'Lorem ipsum dolor sit amet, quo quis enim in, et vis soleat utroque expetendis. Viris nostro placerat et cum, ut eum nobis noluisse. Eu zril aperiri tincidunt mea. Idque propriae vituperatoribus ex sed.\n\n';
         }
 
         return markdown;
@@ -166,18 +183,21 @@ export default class OutputContainer extends Component {
     }
 
     renderOutputBody() {
-        return this.state.isPostView ? this.renderPostView() : this.renderSourceView();
+        return this.state.isPostView
+            ? this.renderPostView()
+            : this.renderSourceView();
     }
 
     renderPostView() {
-        return (
-            <PostView markdown={this.renderMarkdown()} />
-        );
+        return <PostView markdown={this.renderMarkdown()} />;
     }
 
     renderSourceView() {
         return (
-            <SourceView markdown={this.renderMarkdown()} logReportGeneratedEvent={this.logReportGeneratedEvent} />
+            <SourceView
+                markdown={this.renderMarkdown()}
+                logReportGeneratedEvent={this.logReportGeneratedEvent}
+            />
         );
     }
 
@@ -216,12 +236,39 @@ export default class OutputContainer extends Component {
         this.logReportGeneratedEvent();
     }
 
+    onDonateClick() {
+        window.open('https://www.paypal.me/martellaj/5', '_blank');
+    }
+
     render() {
         return (
             <div className="outputContainer">
-                <button className="copy-button" onClick={this.onCopyClick} children={this.state.copyButtonText}></button>
+                <div className="actionContainer">
+                    <div>
+                        <button
+                            className="action-button"
+                            onClick={this.onCopyClick}
+                            children={this.state.copyButtonText}
+                        />
+                        <button
+                            className="action-button"
+                            onClick={this.onDonateClick}
+                        >
+                            donate
+                        </button>
+                    </div>
+                    <span className="giveMeMoneyText">
+                        As of May 9, 2018, race reportr has generated over 2,000
+                        race reports for reddit. If you think it provides value
+                        to your subreddit, please consider buying me a cup of
+                        coffee.
+                    </span>
+                </div>
 
-                <Tabs onSelect={this.onTabSelect} selectedIndex={this.state.selectedIndex}>
+                <Tabs
+                    onSelect={this.onTabSelect}
+                    selectedIndex={this.state.selectedIndex}
+                >
                     <TabList>
                         <Tab>preview</Tab>
                         <Tab>source</Tab>

@@ -29,10 +29,10 @@
     font-weight: bold;
 }
 
-.copy-button {
+.action-button {
     height: auto;
     font-style: normal;
-    margin: 12px;
+    margin: 12px 0px 12px 12px;
     background: #264575;
     -webkit-border-radius: 5;
     -moz-border-radius: 5;
@@ -45,9 +45,15 @@
     text-decoration: none;
 }
 
-.copy-button:hover {
+.action-button:hover {
     background: #3d72b3;
     text-decoration: none;
+}
+
+.giveMeMoneyText {
+    display: inline-block;
+    margin: 0px 12px 12px 12px;
+    font-size: 10px;
 }
 
 .ReactTabs__Tab--selected {
