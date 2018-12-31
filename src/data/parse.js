@@ -1,8 +1,8 @@
-fs = require('fs');
+fs = require("fs");
 
 (function() {
     const data = JSON.parse(
-        fs.readFileSync('./src/data/dumps/05082018.json', 'utf8')
+        fs.readFileSync("./src/data/dumps/12312018.json", "utf8")
     );
 
     const loadData = parseLoads(data.loads);
