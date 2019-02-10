@@ -1,3 +1,6 @@
+*race reportr is now maintained by CoachView! For the latest and greatest, check out it's new home [here](https://github.com/coachview/race-reportr).(
+
+
 # race reportr
 
 *race reportr* is a tool used by reddit's running communities to generate well-organized, beautiful race reports. This iteration of *race reportr* is completely written in React.
